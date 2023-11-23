@@ -1,0 +1,11 @@
+ Failure: test_codeowners_contains_user(ScriptTest):
+  File CODEOWNERS doesn't exist on main branch.
+  <nil> was expected to not be nil.
+test/script_test.rb:59:in `test_codeowners_contains_user'
+     56:   def test_codeowners_contains_user
+     57:     user_name = 'softservedata'
+     58:     content = @obj.file_branch('CODEOWNERS', 'main') || @obj.file_branch('.github/CODEOWNERS', 'main') || @obj.file_branch('docs/CODEOWNERS', 'main')
+  => 59:     assert_not_nil(content, 'File CODEOWNERS doesn\'t exist on main branch')
+     60:     assert(content.include?(user_name), "User #{user_name} doesn't present in CODEOWNERS")
+     61:   end
+     62: 
